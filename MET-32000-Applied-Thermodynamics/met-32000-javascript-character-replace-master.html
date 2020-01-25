@@ -7,35 +7,10 @@
         <meta name="created" content="2020-01-23">
         <meta name="description" content="JavaScript single page web application to replace certain characters.">
         <meta name="keywords" content="">
-        <meta name="modified" content="2020-01-24">
+        <meta name="modified" content="2020-01-25">
         <meta name="publisher" content="Lukas W. DiBeneditto, dibeneditto.com">
-        <meta name="version" content="v0110">
+        <meta name="version" content="v0120">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script>
-            function replaceText() {
-                // get the text values for the input and output textareas
-                var userInputText = document.getElementById("userInput").value;
-                var userOutputText = document.getElementById("userInput").value;
-
-                // assign input text to output text
-                userOutputText = userInputText;
-
-                // replace all (global) certain characters
-                // userOutputText = userOutputText.replace(/a/g, 'b');
-                // « ¨ § »
-                userOutputText = userOutputText.replace(/«/g, '<');
-                userOutputText = userOutputText.replace(/¨/g, '"');
-                userOutputText = userOutputText.replace(/§/g, '&');
-                userOutputText = userOutputText.replace(/»/g, '>');
-
-                // update input and output text for form submission
-                document.getElementById("userInput").value = userInputText;
-                document.getElementById("userOutput").value = userOutputText;
-
-                return false;
-                // to stop form submission
-            }
-        </script>
         <style>
             textarea {
                 overflow: auto;
@@ -62,8 +37,35 @@
                 <div>
                     <textarea id="userOutput" cols="80" rows="12"></textarea>
                 </div>
-                <p>By Lukas W. DiBeneditto, <a href="https://dibeneditto.com">dibeneditto.com</a>, 2020-01-24, v0110.</p>
+                <p>
+                    By Lukas W. DiBeneditto, <a href="https://dibeneditto.com">dibeneditto.com</a>, 2020-01-25, v0120.
+                </p>
             </form>
         </div>
     </body>
+    <script>
+        function replaceText() {
+            // get the text values for the input and output textareas
+            var userInputText = document.getElementById("userInput").value;
+            var userOutputText = document.getElementById("userInput").value;
+
+            // assign input text to output text
+            userOutputText = userInputText;
+
+            // replace all (global) certain characters
+            // userOutputText = userOutputText.replace(/a/g, "b");
+            // « ¨ § »
+            userOutputText = userOutputText.replace(/«/g, "<");
+            userOutputText = userOutputText.replace(/¨/g, "\"");
+            userOutputText = userOutputText.replace(/§/g, "&");
+            userOutputText = userOutputText.replace(/»/g, ">");
+
+            // update input and output text for form submission
+            document.getElementById("userInput").value = userInputText;
+            document.getElementById("userOutput").value = userOutputText;
+
+            return false;
+            // to stop form submission
+        }
+    </script>
 </html>
